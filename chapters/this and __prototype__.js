@@ -50,10 +50,10 @@ console.log(Person.prototype)
 
 david = new Person('David Fucking Wild', 17) 
 // now Person.prototype creates a new object with a __proto__-property that refers to Person.prototype
-//  and then the constructor is called and adds the attribute to the new object.
-console.log(david.__proto__) // { constructor, inheritedClass }
-console.log(david.prototype) //Note: instances doesnt have a prototype property only __proto__
-console.log(david.__proto__.prototype) //But you can find it at __proto__ as mentioned above
+// and then Person.constructor is called, that adds properties to the instance.
+console.log(david.__proto__) // refers to Person.prototype -> { constructor(Person), __proto__(inheritedClass) }
+console.log(david.__proto__.__proto__) // refers to Object, the inherited class -> { constructor(Object), __proto__(Object)}
+// Note: the __proto__ of Object references itself
 
 // There is a lot more about __proto__ and prototype, that would be a look worth.
 
@@ -65,6 +65,15 @@ It completely depends on the context.
 
 const window = this
 // if you use this in the global scope it references to the window-object
+
+let david = {
+    name: 'David',
+    age: 17,
+    greet: () => {
+        console.log(`Hello, my name is ${this.name}`)
+    }
+}
+// inside objects, this refers to the object itself
 
 function func(){
     console.log(this)
@@ -106,16 +115,6 @@ class Person{
 
 let david = new Person('David', 17)
 david.greet()
-
-
-let david = {
-    name: 'David',
-    age: 17,
-    greet: () => {
-        console.log(`Hello, my name is ${this.name}`)
-    }
-}
-// inside objects, this refers to the object itself
 
 /*
 There are also more cases where this is... just complicated.
