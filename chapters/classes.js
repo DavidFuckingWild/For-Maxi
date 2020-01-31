@@ -38,7 +38,7 @@ class Person {
         this.name = name
         this.age = age
         // in the constructor you initialize your attributes
-        // Lets say for simplicity that this is here used similar like the last time.
+        // Lets say for simplicity that 'this' is here used similar like the last time.
     }
 
     greet(otherPerson) {
@@ -53,12 +53,12 @@ class Person {
 let david = new Person('David Fucking Wild')
 let maxi = new Person('Marximillian Komar')
 david.greet(maxi)
-// you can access attributes and methods by instanceName.AttrName and instanceName.MethodName()
+// you can access attributes by instanceName.attrName and methods by instanceName.methodName()
 
 /*----------------------------------------------------------------*/
 /*
-This reduces a lot of code okay, but classes are much more powerful than this.
-One example of that we just have seen before. The constructor enables us the chance to execute some code
+This reduces a lot of code okay, but classes are much more powerful than that.
+One example of that we just have seen before. The constructor enables us to execute some code
 at the initialization of a new instance.
 Another example is too look if a variable is an instance from a specific class.
 */
@@ -71,3 +71,5 @@ if (david instanceof Person) {
 if (david instanceof File) {
     //false
 }
+
+// another powerful tool of classes are inheritance and static-methods.
