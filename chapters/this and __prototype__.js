@@ -35,7 +35,7 @@ This is possible because every function in Javascript has a prototype, exactly l
 /*
 What is Prototype?
 Prototype is an object {}. It is bounded to the class/function. 
-It is the blueprint that creates the __proto__.property of the instances
+It is responsible for a thing called inheritance and has a constructor that creates the __proto__.property of the instances.
 The __proto__.property is responsible for the property-lookups.
 Why you need to lookup this kind of things?
 Maybe you hear the first-time of Polymorphism or Inheritance. You will learn it later. 
@@ -46,13 +46,14 @@ or in the 'inherited class' or if they arent defined at all.
 */
 
 console.log(Person.prototype)
-// Holds all the properties from Person in it and the one from the Object-class,
-// because every class or function inherits from it.
+// Holds the constructor and __proto__ that refers the inherited class. In this case Object.
 
-david = new Person('David Fucking Wild', 17) // now prototype creates a __proto__.property
-console.log(david.__proto__)
-console.log(david.prototype) //Note: instances doesnt have a prototype property
-console.log(david.__proto__.prototype) //But you can find it at __proto__
+david = new Person('David Fucking Wild', 17) 
+// now Person.prototype creates a new object with a __proto__-property that refers to Person.prototype
+//  and then the constructor is called and adds the attribute to the new object.
+console.log(david.__proto__) // { constructor, inheritedClass }
+console.log(david.prototype) //Note: instances doesnt have a prototype property only __proto__
+console.log(david.__proto__.prototype) //But you can find it at __proto__ as mentioned above
 
 // There is a lot more about __proto__ and prototype, that would be a look worth.
 
@@ -76,7 +77,7 @@ function Person(name, age) {
 }
 
 // Note: if you use a class like an prototype-constructor 
-//it references somehow to the __proto__.property that will be created.
+//it references the new instance that will be created.
 
 function Person(name, age) {
     this.name = name
@@ -85,7 +86,7 @@ function Person(name, age) {
         console.log(`Hello, my name is ${this.name}`)
     }
 }
-// If you use a function like a method, this refers to __proto__
+// If you use a function like a method its the same case as before. It will reference the instance you create later.
 
 //So use classes and lambdas instead, to make things more clear.
 
@@ -105,7 +106,7 @@ class Person{
 
 let david = new Person('David', 17)
 david.greet()
-// inside a class it refers to __proto__.
+
 
 let david = {
     name: 'David',
