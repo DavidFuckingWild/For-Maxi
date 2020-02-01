@@ -1,12 +1,11 @@
 /*
     I advise you to use the so called 'lambda-expressions' instead of the normal function-keyword.
     Why?
-    Because functions in Javascript have (unlike in other programming languages) a this-keyword and a __proto__-property.
-    What they are, how and when to use them will I explain later in the last chapter. 
-    The important thing is that the this-keyword can be used in diffrent contextes and that can easely lead to 
+    The Thing is that the this-keyword can be used in diffrent contextes (especially in functions) and that can easely lead to 
     unintended bugs or ugly programming patterns. Especially beginners make mistakes because of that.
-    The advantage of 'lambda-expressions' is that they are exactly like functions, but they dont have the this-keyword
-    and the __proto__-property.
+    The advantage of 'lambda-expressions' is that they are exactly like functions, but the this-keyword
+    will there always behave the same. 
+    Also you can use normal functions like classes(see last chapter). Thats not possible with lambda-expressions. 
 */
 
 /*--------------------------------------------------------*/
