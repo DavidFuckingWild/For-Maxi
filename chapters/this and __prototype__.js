@@ -47,6 +47,7 @@ or in the 'inherited class' or if they arent defined at all.
 
 console.log(Person.prototype)
 // Holds the constructor and __proto__ that refers the inherited class. In this case Object.
+// Note: every class/function inherits automatically from Object.
 
 david = new Person('David Fucking Wild', 17) 
 // now Person.prototype creates a new object with a __proto__-property that refers to Person.prototype
