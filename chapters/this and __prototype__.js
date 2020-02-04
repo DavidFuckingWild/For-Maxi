@@ -20,7 +20,6 @@ function Person(name, age) {
     this.greet = () => {
         console.log(`Hello, my name is ${this.name}`)
     }
-    greet()
 }
 
 const david = new Person('David', 17)
